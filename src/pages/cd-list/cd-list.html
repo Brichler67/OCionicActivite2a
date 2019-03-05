@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Liste des CD</ion-title>
+      <ion-buttons start>
+        <button ion-button icon-only (click)="onToggleMenu()">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <button ion-item *ngFor="let cd of cdList, let i = index " [ngClass]="(cd.isLend == false) ? 'lend' : 'available'" (click)="openModal(i)">
+        {{ cd.name }}
+      </button>
+    </ion-list>
+  </ion-content>

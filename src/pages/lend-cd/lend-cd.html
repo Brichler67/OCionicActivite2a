@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar >
+        <ion-buttons right>
+            <button (click)="close()">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-buttons>
+      <ion-title>{{cd.name}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-card-content [ngClass]="{'is-lend': cd.isLend, 'is-return': !cd.isLend}">
+      <p>{{cd.description}}</p>
+    </ion-card-content>
+      <button 
+        ion-button
+        color="danger"
+        [disabled]="cd.isLend"
+        (click)="onToggleAppareil('top')"
+       >Prêter</button>
+      <button
+      ion-button
+      color="secondary"
+      [disabled]="!cd.isLend"
+      (click)="onToggleAppareil('top')"
+      >Rendre</button>
+  </ion-content>
+  

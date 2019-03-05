@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar >
+      <ion-buttons right>
+          <button ion-button icon-only (click)="onToggleMenu()">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons>  
+          <ion-buttons left>
+              <button [navPush]="tabsPage">
+                  <ion-icon name="arrow-dropleft"></ion-icon>
+                </button>
+          </ion-buttons>          
+      <ion-title>Réglages</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>C'est ici qu'on effectue les réglages. </p>
+</ion-content>

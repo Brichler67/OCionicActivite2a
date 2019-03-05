@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar >
+      <ion-buttons right>
+          <button (click)="close()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+    <ion-title>{{book.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card-content [ngClass]="{'is-lend': book.isLend, 'is-return': !book.isLend}">
+    <p>{{book.description}}</p>
+  </ion-card-content>
+
+  <form [formGroup]="bookForm"  *ngIf="!book.isLend" >
+    <ion-list>
+        <ion-label>Nom</ion-label>
+        <ion-input placeholder="Nom" formControlName="username" [(ngModel)]="book.username"></ion-input>
+    </ion-list>      
+  </form>
+
+
+    <button 
+      ion-button
+      color="danger"
+      [disabled]="book.isLend"
+      (click)="onToggleAppareil('top')"
+     >Prêter</button>
+    <button
+    ion-button
+    color="secondary"
+    [disabled]="!book.isLend"
+    (click)="onToggleAppareil('top')"
+    >Rendre</button>
+</ion-content>
