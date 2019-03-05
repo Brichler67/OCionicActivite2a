@@ -53,13 +53,11 @@ export class BookCdServices {
 
   addBooks(book: Library){
     this.bookList.push(book);
-    console.log("book",book.username)
     this.emitBooks();
   }
 
   emitBooks() {
     this.book$.next(this.bookList.slice());
-    console.log("book",this.bookList.slice())
   }
 
   saveData(){
@@ -118,8 +116,7 @@ export class BookCdServices {
       firebase.database().ref('cd').once('value').then(
         (data: DataSnapshot) => {
           this.cdList = data.val();
-          if(this.cdList !=null){this.emitCds()}
-          //this.emitCds();          
+          if(this.cdList !=null){this.emitCds()}         
           resolve('Données récupérées.');
         }, (error) => {
           reject(error);
