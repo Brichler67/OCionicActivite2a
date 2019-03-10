@@ -38,6 +38,7 @@ export class LendBookPage implements OnInit {
   onToggleAppareil(position: string) {
     this.book.isLend = !this.book.isLend;
     let bookLend = this.book.isLend === true ? 'emprunté' : 'rendu'
+    if (this.book.isLend === false){this.book.username = ''};
     let toast = this.toastCtrl.create({
       message: `Le livre est ${bookLend}`,
       duration: 2000,

@@ -12,7 +12,9 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let book of bookList, let i = index " [ngClass]="(book.isLend == false) ? 'lend' : 'available'" (click)="openModal(i)">
-      {{ book.name }}
+      {{ book.name }} 
+      <span *ngIf="book.username" class="userName"> {{ book.username }}</span>
+      <span *ngIf="!book.username" class="userName"> non emprunté</span> 
     </button>
   </ion-list>
 </ion-content>
